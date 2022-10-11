@@ -8,7 +8,6 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        
 
     def do_POST(self):
         if self.headers.get('Authorization') is None:
@@ -16,15 +15,7 @@ class Handler(BaseHTTPRequestHandler):
             data = self.rfile.read(length).decode('utf-8')
 
             self.do_HEAD()
-            self.wfile.write(data.encode('utf-8'))
+            self.wfile.write(json.dumps(data).encode('utf-8'))
             pass
         else:
             pass
-
-
-def get_content(path: str):
-    path = path.replace("+", " ")
-    result = dict((a.strip(), b.strip())
-                  for a, b in (element.split('=')
-                               for element in path.split('&')))
-    return result
