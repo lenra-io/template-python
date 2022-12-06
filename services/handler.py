@@ -10,12 +10,20 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        if self.headers.get('Authorization') is None:
-            length = int(self.headers.get('Content-Length'))
-            data = self.rfile.read(length).decode('utf-8')
+        length = int(self.headers.get('Content-Length'))
+        data = json.loads(self.rfile.read(length))
+        print(data)
+        print(data["key1"])
 
-            self.do_HEAD()
-            self.wfile.write(json.dumps(data).encode('utf-8'))
+        if data["widget"] is not None:
+            pass
+        elif data["action"] is not None:
+            pass
+        elif data["resource"] is not None:
             pass
         else:
             pass
+
+        self.do_HEAD()
+        self.wfile.write(json.dumps(data).encode('utf-8'))
+        pass
