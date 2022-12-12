@@ -1,3 +1,5 @@
+import services.apiService as apiService
+
 def run(props, event, api):
     res = apiService.getDoc(api, "counter", props.id)
     counter = res.data

@@ -16,6 +16,7 @@ class Handler(BaseHTTPRequestHandler):
         print(data["key1"])
 
         if data["widget"] is not None:
+            import "widgets/${data["widget"]}"
             pass
         elif data["action"] is not None:
             pass
