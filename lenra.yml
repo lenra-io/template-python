@@ -1,0 +1,14 @@
+componentsApi: "1.0"
+generator:
+  dofigen:
+    image: python:latest
+    envs:
+      LOG_LEVEL: debug
+    adds:
+          - "."
+    workdir: /app
+    cmd:
+      - python3
+      - run.py
+    ports:
+      - 8000

@@ -1,5 +1,6 @@
 import json
 from http.server import BaseHTTPRequestHandler
+from manifest import manifest
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -10,21 +11,26 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        length = int(self.headers.get('Content-Length'))
-        data = json.loads(self.rfile.read(length))
-        print(data)
-        print(data["key1"])
+        length = int(self.headers.get('Content-Length', 0))
+        data = {}
+        if length != 0:
+            data = json.loads(self.rfile.read(length))
+            print(data)
+            print(data.keys())
 
-        if data["widget"] is not None:
-            import "widgets/${data["widget"]}"
-            pass
-        elif data["action"] is not None:
-            pass
-        elif data["resource"] is not None:
+        if 'widget' in data.keys():
+            widget = __import__('widgets.' + data['widget'], fromlist=[None])
+            self.do_HEAD()
+            self.wfile.write(bytes(json.dumps(widget.render(data["data"], data["props"])), 'utf-8'))
+        elif 'action' in data.keys():
+
+            listener = __import__('listeners.' + data['action'], fromlist=[None])
+            self.do_HEAD()
+            self.wfile.write(bytes(json.dumps(listener.run(data["props"], data["event"], data["api"])), 'utf-8'))
+        elif 'resource' in data.keys():
+            self.do_HEAD()
             pass
         else:
-            pass
-
-        self.do_HEAD()
-        self.wfile.write(json.dumps(data).encode('utf-8'))
-        pass
+            self.do_HEAD()
+            print(json.dumps(manifest))
+            self.wfile.write(bytes(json.dumps(manifest), 'utf-8'))

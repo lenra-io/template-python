@@ -7,7 +7,7 @@ def render(data, counter) :
     "children": [
       {
         "type": "text",
-        "value": "${counter.text}: ${data[0].count}"
+        "value": counter["text"] +": "+ str(data[0]["count"])
       },
       {
         "type": "button",
@@ -15,8 +15,7 @@ def render(data, counter) :
         "onPressed": {
           "action": "increment",
           "props": {
-            "id": data[0]._id,
-            "datastore": data[0].datastore
+            "id": data[0]["_id"],
           }
         }
       }

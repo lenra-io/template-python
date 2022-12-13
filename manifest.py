@@ -1,0 +1,1 @@
+manifest = {'manifest': {'rootWidget': "main"}}
