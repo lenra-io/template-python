@@ -10,5 +10,7 @@ generator:
     cmd:
       - python3
       - run.py
-    ports:
-      - 8000
+    # ports:
+    #   - 8000
+dev:
+  mongoTag: 4

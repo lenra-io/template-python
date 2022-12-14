@@ -1,33 +1,26 @@
 import json
-from http.server import BaseHTTPRequestHandler
+import sys
 from manifest import manifest
 
+def log(str):
+    print(str, file=sys.stderr)
 
-class Handler(BaseHTTPRequestHandler):
+def handle(body):
+    log(f"Body: {body}")
+    data = {}
+    if body != '':
+        data = json.loads(body)
 
-    def do_HEAD(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.end_headers()
+    log(f"data: {data}")
 
-    def do_POST(self):
-        length = int(self.headers.get('Content-Length', 0))
-        data = {}
-        if length != 0:
-            data = json.loads(self.rfile.read(length))
-
-        if 'widget' in data.keys():
-            widget = __import__('widgets.' + data['widget'], fromlist=[None])
-            self.do_HEAD()
-            self.wfile.write(bytes(json.dumps(widget.render(data["data"], data["props"])), 'utf-8'))
-        elif 'action' in data.keys():
-            listener = __import__('listeners.' + data['action'], fromlist=[None])
-            self.do_HEAD()
-            listener.run(data["props"], data["event"], data["api"])
-            self.wfile.write(bytes("", 'utf-8'))
-        elif 'resource' in data.keys():
-            self.do_HEAD()
-            pass
-        else:
-            self.do_HEAD()
-            self.wfile.write(bytes(json.dumps(manifest), 'utf-8'))
+    if 'widget' in data.keys():
+        widget = __import__('widgets.' + data['widget'], fromlist=[None])
+        return json.dumps(widget.render(data["data"], data["props"]))
+    elif 'action' in data.keys():
+        listener = __import__('listeners.' + data['action'], fromlist=[None])
+        listener.run(data["props"], data["event"], data["api"])
+        return ""
+    elif 'resource' in data.keys():
+        return ""
+    else:
+        return json.dumps(manifest)
