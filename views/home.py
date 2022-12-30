@@ -7,7 +7,7 @@ def render(data, counter) :
         "crossAxisAlignment": "center",
         "children": [
             {
-                "type": "widget",
+                "type": "view",
                 "name": "counter",
                 "coll": "counter",
                 "query": {
@@ -16,7 +16,7 @@ def render(data, counter) :
                 "props": { "text": "My personnal counter" }
             },
             {
-                "type": "widget",
+                "type": "view",
                 "name": "counter",
                 "coll": "counter",
                 "query": {

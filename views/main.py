@@ -7,11 +7,11 @@ def render(data, props) :
     "crossAxisAlignment": "center",
     "children": [
       {
-        "type": "widget",
+        "type": "view",
         "name": "menu",
       },
       {
-        "type": "widget",
+        "type": "view",
         "name": "home"
       }
     ]

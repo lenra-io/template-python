@@ -1,1 +1,1 @@
-manifest = {'manifest': {'rootWidget': "main"}}
+manifest = {'manifest': {'rootView': "main"}}

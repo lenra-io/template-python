@@ -5,8 +5,11 @@ generator:
     envs:
       LOG_LEVEL: debug
     adds:
-          - "."
+      - "."
     workdir: /app
+    root:
+      run:
+        - pip3 install requests
     cmd:
       - python3
       - run.py

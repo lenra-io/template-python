@@ -13,12 +13,12 @@ def handle(body):
 
     log(f"data: {data}")
 
-    if 'widget' in data.keys():
-        widget = __import__('widgets.' + data['widget'], fromlist=[None])
-        return json.dumps(widget.render(data["data"], data["props"]))
+    if 'view' in data.keys():
+        view = __import__('views.' + data['view'], fromlist=[None])
+        return json.dumps(view.render(data['data'], data['props']))
     elif 'action' in data.keys():
         listener = __import__('listeners.' + data['action'], fromlist=[None])
-        listener.run(data["props"], data["event"], data["api"])
+        listener.run(data['props'], data['event'], data['api'])
         return ""
     elif 'resource' in data.keys():
         return ""
