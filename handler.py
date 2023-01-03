@@ -1,5 +1,6 @@
 import json
 import sys
+import io
 from manifest import manifest
 
 def log(str):
@@ -15,12 +16,13 @@ def handle(body):
 
     if 'view' in data.keys():
         view = __import__('views.' + data['view'], fromlist=[None])
-        return json.dumps(view.render(data['data'], data['props']))
+        return bytes(json.dumps(view.render(data.get('data', []), data.get('props', {}))), 'utf-8')
     elif 'action' in data.keys():
         listener = __import__('listeners.' + data['action'], fromlist=[None])
-        listener.run(data['props'], data['event'], data['api'])
-        return ""
+        listener.run(data.get('props', {}), data.get('event', {}), data['api'])
+        return bytes("", 'utf-8')
     elif 'resource' in data.keys():
-        return ""
+        with open("./resources/" + data['resource'], 'rb') as file:
+            return file.read()
     else:
-        return json.dumps(manifest)
+        return bytes(json.dumps(manifest), 'utf-8')

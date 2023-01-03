@@ -1,5 +1,3 @@
-import json
-import logging
 from http.server import BaseHTTPRequestHandler
 from handler import handle
 from http.server import HTTPServer

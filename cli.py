@@ -14,4 +14,4 @@ def read_stdin():
 def run():
     body = read_stdin()
     result = handle(body)
-    print(result)
+    sys.stdout.buffer.write(result)

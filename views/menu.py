@@ -13,17 +13,17 @@ def render(data, props) :
       },
     },
     "padding": {
-      "top": 2,
-      "bottom": 2,
-      "left": 4,
-      "right": 4,
+      "top": 16,
+      "bottom": 16,
+      "left": 32,
+      "right": 32,
     },
     "child": {
       "type": "flex",
       "fillParent": True,
       "mainAxisAlignment": "spaceBetween",
       "crossAxisAlignment": "center",
-      "padding": { "right": 4 },
+      "padding": { "right": 32 },
       "children": [
         {
           "type": "container",
