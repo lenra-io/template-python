@@ -10,8 +10,6 @@ def run(props, event, api):
     counters = res.json()
 
     if (len(counters)  == 0):
-        print("passsssssssssssssss", file=sys.stderr)
-
         apiService.createDoc(api, "counter", {
             "count": 0,
             "user": "global"
