@@ -1,0 +1,15 @@
+componentsApi: "1.0"
+generator:
+  dofigen:
+    image: python:latest
+    envs:
+      LOG_LEVEL: debug
+    adds:
+      - "."
+    workdir: /app
+    root:
+      run:
+        - pip3 install requests
+    cmd:
+      - python3
+      - run.py
