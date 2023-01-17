@@ -1,52 +1,103 @@
-# template-python
-[Python](https://github.com/python) template to start your Lenra app.
-
-## Get Started !
-
-### Requirements*
-
-- [x] docker
-- [x] docker-compose
-- [ ] buildkit
-- [x] lenra_cli
-
-_*Unchecked value is optional_
+<div id="top"></div>
+<!--
+*** This README was created with https://github.com/othneildrew/Best-README-Template
+-->
 
 
-### How to install `lenra_cli`
 
-You need to install the Lenra CLI to start the devtools that will show your app.
+<!-- PROJECT SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-To download it, you can use cargo or download the binary via the [latest github release assets](https://github.com/lenra-io/lenra_cli/releases)
 
-From cargo you need to run the following command :
 
-```bash
-cargo install lenra_cli --version=1.0.0-beta.5
-# or `cargo install lenra_cli@1.0.0-beta.5`
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+
+<h3 align="center">Template Python</h3>
+
+  <p align="center">
+    This template provides just enough to get started with your Python application.
+    <br />
+    <br />
+    <a href="https://github.com/lenra-io/template-python/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/lenra-io/template-python/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
+
+<!-- GETTING STARTED -->
+
+## Prerequisites
+
+To properly run this template, you will have to make sure that the Lenra CLI and docker with docker-compose are installed on your computer.
+Installation instructions can be found here https://github.com/lenra-io/lenra_cli.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+template you can use the `dev` command that will build and start your app and enter in a custom terminal:
+```console
+lenra dev
 ```
 
-When installed you can run the binary file
+You can then access the application by opening [`localhost:4000`](http://localhost:4000) on your web browser. 
 
-```bash
-lenra --version
-```
+This template is a basic implementation of a Lenra application using the Python language. You can get your application started by using this template.
 
-### Building and debugging your app
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-To build your app, you can run the `lenra build` command that will build the docker container
-```bash
-lenra build
-```
 
-The `lenra start` command will start all needed services to make your app ready and then open your browser so you can start debugging.
+<!-- CONTRIBUTING -->
+## Contributing
 
-```bash
-lenra start
-```
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-When everything is fine, you can stop your app by running the `lenra stop` command. That will interrupt all current running services about your app. And delete all data from your app to be able to keep your test clean.
+If you have a suggestion that would make this better, please open an issue with the tag "enhancement".
+Don't forget to give the project a star if you liked it! Thanks again!
 
-```bash
-lenra stop
-```
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the **MIT** License. See [LICENSE](./LICENSE) for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Lenra - [@lenra_dev](https://twitter.com/lenra_dev) - contact@lenra.io
+
+Project Link: [https://github.com/lenra-io/template-python](https://github.com/lenra-io/template-python)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/lenra-io/template-python.svg?style=for-the-badge
+[contributors-url]: https://github.com/lenra-io/template-python/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lenra-io/template-python.svg?style=for-the-badge
+[forks-url]: https://github.com/lenra-io/template-python/network/members
+[stars-shield]: https://img.shields.io/github/stars/lenra-io/template-python.svg?style=for-the-badge
+[stars-url]: https://github.com/lenra-io/template-python/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lenra-io/template-python.svg?style=for-the-badge
+[issues-url]: https://github.com/lenra-io/template-python/issues
+[license-shield]: https://img.shields.io/github/license/lenra-io/template-python.svg?style=for-the-badge
+[license-url]: https://github.com/lenra-io/template-python/blob/master/LICENSE
