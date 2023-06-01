@@ -10,6 +10,7 @@ generator:
     root:
       run:
         - pip3 install requests
+        - pip install -i https://test.pypi.org/simple/ app-lib-python
     cmd:
       - python3
       - run.py

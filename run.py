@@ -1,6 +1,3 @@
-#!/usr/bin/python
+from app_lib_python import server
 
-# from server import run
-from cli import run
-
-run()
+server.app.run()

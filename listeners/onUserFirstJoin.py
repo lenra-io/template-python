@@ -1,13 +1,13 @@
-import services.apiService as apiService
+import app_lib_python.utils.api as Api
 
 def run(props, event, api):
-    res = apiService.executeQuery(api, "counter", {
+    res = api.DataApi.executeQuery(api, "counter", {
         "user": "@me"
     })
 
     counters = res.json()
     if (len(counters) == 0):
-        apiService.createDoc(api, "counter", {
+        api.DataApi.createDoc(api, "counter", {
             "count": 0,
             "user": "@me"
         })
