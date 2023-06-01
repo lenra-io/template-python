@@ -4,13 +4,17 @@ generator:
     image: python:latest
     envs:
       LOG_LEVEL: debug
+      APP_PATH: /app
     adds:
       - "."
     workdir: /app
     root:
       run:
-        - pip3 install requests
-        - pip install -i https://test.pypi.org/simple/ app-lib-python
+        - pip3 install requests fastapi "uvicorn[standard]" pydantic
+        - pip install -i https://test.pypi.org/simple/ lenra-app-lib~=1.0.17
+        - python3 -m compileall .
     cmd:
       - python3
       - run.py
+    ports:
+      - 3000

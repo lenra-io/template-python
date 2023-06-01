@@ -1,3 +1,3 @@
-from app_lib_python import server
+from lenra_app_lib import server
 
-server.app.run()
+server.run()
