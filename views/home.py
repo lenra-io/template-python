@@ -1,26 +1,30 @@
 def render(data, counter) :
     return {
-        "type": "flex",
+        "_type": "flex",
         "direction": "vertical",
         "spacing": 16,
         "mainAxisAlignment": "spaceEvenly",
         "crossAxisAlignment": "center",
         "children": [
             {
-                "type": "view",
+                "_type": "view",
                 "name": "counter",
-                "coll": "counter",
-                "query": {
-                    "user": "@me"
+                "find": {
+                    "coll": "counter",
+                    "query": {
+                        "user": "@me"
+                    }
                 },
                 "props": { "text": "My personnal counter" }
             },
             {
-                "type": "view",
+                "_type": "view",
                 "name": "counter",
-                "coll": "counter",
-                "query": {
-                    "user": "global"
+                "find": {
+                    "coll": "counter",
+                    "query": {
+                        "user": "global"
+                    }
                 },
                 "props": { "text": "The common counter" }
             }

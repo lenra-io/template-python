@@ -1,6 +1,6 @@
 def render(data, props) :
   return {
-    "type": "container",
+    "_type": "container",
     "decoration": {
       "color": 0xFFFFFFFF,
       "boxShadow": {
@@ -19,14 +19,14 @@ def render(data, props) :
       "right": 32,
     },
     "child": {
-      "type": "flex",
+      "_type": "flex",
       "fillParent": True,
       "mainAxisAlignment": "spaceBetween",
       "crossAxisAlignment": "center",
       "padding": { "right": 32 },
       "children": [
         {
-          "type": "container",
+          "_type": "container",
           "constraints": {
             "minWidth": 32,
             "minHeight": 32,
@@ -34,16 +34,16 @@ def render(data, props) :
             "maxHeight": 32,
           },
           "child": {
-            "type": "image",
+            "_type": "image",
             "src": "logo.png"
           },
         },
         {
-          "type": "flexible",
+          "_type": "flexible",
           "child": {
-            "type": "container",
+            "_type": "container",
             "child": {
-              "type": "text",
+              "_type": "text",
               "value": "Hello World",
               "textAlign": "center",
               "style": {
