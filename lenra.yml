@@ -13,6 +13,3 @@ generator:
     cmd:
       - python3
       - run.py
-dev:
-  devtool:
-    tag: local
