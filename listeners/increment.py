@@ -1,8 +1,5 @@
 import services.apiService as apiService
 
 def run(props, event, api):
-    res = apiService.getDoc(api, "counter", props["id"])
-    counter = res.json()
-    counter["count"] += 1
-    apiService.updateDoc(api, "counter", counter)
+    apiService.updateMany(api, "counter", { '_id': props["id"] }, { '$inc': { 'count': 1 } })
     return {}
