@@ -3,7 +3,7 @@ import sys
 
 
 def run(props, event, api):
-    res = apiService.executeQuery(api, "counter", {
+    res = apiService.find(api, "counter", {
         "user": "global"
     })
 

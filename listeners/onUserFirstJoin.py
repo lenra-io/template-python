@@ -1,7 +1,7 @@
 import services.apiService as apiService
 
 def run(props, event, api):
-    res = apiService.executeQuery(api, "counter", {
+    res = apiService.find(api, "counter", {
         "user": "@me"
     })
 

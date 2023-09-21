@@ -1,19 +1,20 @@
 def render(data, counter) :
   return {
-    "type": "flex",
+    "_type": "flex",
     "spacing": 16,
     "mainAxisAlignment": "spaceEvenly",
     "crossAxisAlignment": "center",
     "children": [
       {
-        "type": "text",
+        "_type": "text",
         "value": counter["text"] +": "+ str(data[0]["count"])
       },
       {
-        "type": "button",
+        "_type": "button",
         "text": "+",
         "onPressed": {
-          "action": "increment",
+          "_type": "listener",
+          "name": "increment",
           "props": {
             "id": data[0]["_id"],
           }
